@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html ng-app="formValidation" >
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  <title>The Information</title>
+
+  <!-- <script src="./info_files/jquery.min.js"></script> -->
+  <link rel="stylesheet" href="./info_files/bootstrap.min.css">
+  <link rel="stylesheet" href="./info_files/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="./info_files/font-awesome.min.css">
+  <script src="./info_files/bootstrap.min.js"></script>
+  <!-- <script src="./info_files/braintree.js"></script> -->
+<!--   <script src="./info_files/jsapi"></script>
+<script src="./info_files/chartkick-81ad9c0115b953f4cf378b07d09777f3.js"></script> -->
+
+  <link rel="stylesheet" media="all" href="./info_files/application-c797a23b567c35d95bd22490a7c59238.css" data-turbolinks-track="true">
+<!--   <script src="./info_files/application-b82fd012404f081600901cd830dfe204.js" data-turbolinks-track="true">
+    
+  </script> -->
+  <!-- <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="dCUGJPlfEk81mEfyLSh5HXWLFw9lBpyBZ0jJmFT/ZjDzfeUs7jWvLGnTic1O73e5pHYz8dDTASHwCZlJM7rA4g==">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <link rel="icon" type="image/x-icon" href="https://membership.theinformation.com/favicon.ico">
+
+
+</head>
+
+<body class=" " ng-controller="mainController">
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12  content">
+        <div class="row">
+          <a href="https://www.theinformation.com/">
+            <img class="navbar-brand" src="./info_files/the-information-logo-f1d9c1c8b841a5e80a97ab1ac0eee0dc.svg" alt="The information logo">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container flash-container" style="display: none;">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="flash flash-notice">Your account is already active</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row mt4">
+  <div class="head">
+    <h1 class="title serif">Subscribe to The Information</h1>
+    <h4 class="subheader">We would love you to try The Information. Try us today and get your first month free, and 20% off after that for the first year ($30/month). You can cancel anytime from our website in one click, with zero hassle.</h4>
+      <br>
+  </div>
+  <hr class="divider">
+</div>
+<div class="row signupform">
+
+
+
+  <div class="col-md-7 content">
+  <!-- <p ng-hide="false" class="help-block">1</p>
+  <p ng-show="false" class="help-block">2</p> -->
+  <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate class="new_user" id="new_user" action="https://membership.theinformation.com/membership/join" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="authenticity_token" value="dCUGJPlfEk81mEfyLSh5HXWLFw9lBpyBZ0jJmFT/ZjDzfeUs7jWvLGnTic1O73e5pHYz8dDTASHwCZlJM7rA4g==">
+
+    <div class="slug">account information</div>
+    <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine ,'has-success' : userForm.username.$valid }">
+      <label class="control-label" for="username">Full name</label>
+
+      <input value="" autofocus="autofocus" name="username" class="form-control" type="text"id="username" ng-pattern="/^(?:[\u00c0-\u01ffa-zA-Z'-]){2,}(?:\s[\u00c0-\u01ffa-zA-Z'-]{2,})+$/i" ng-required="true" ng-model="user.username">
+      
+       <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">Enter a valid full name.</p>
+    
+      <div class="error-text" id="name-error"></div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine ,'has-success' : userForm.email.$valid }">
+      <label class="control-label" for="user_email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i" ng-required="true" id="user_email" ng-model="user.email">
+
+      
+      <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+    </div>
+
+
+
+    <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine ,'has-success' : userForm.password.$valid }">
+    <label class="control-label" for="password (6+ characters)">Password (6+ characters)</label>
+    <!-- old version -->
+    <input type="password" name="password" class="form-control" ng-model="user.password" id="password" ng-minlength="6" ng-maxlength="12" ng-required="true">
+ 
+
+
+    <p ng-show="userForm.password.$error.minlength" class="help-block">Password is less than 6 characters.</p>
+    <p ng-show="userForm.password.$error.maxlength" class="help-block">Password is too long.</p>
+</div>
+
+
+     <div class="form-group" ng-class="{ 'has-error' : userForm.confirmpassword.$invalid && !userForm.confirmpassword.$pristine ,'has-success' : userForm.confirmpassword.$valid }">
+      <label class="control-label" for="confirmpassword">Confirm password</label>
+      <input class="form-control" type="password" name="confirmpassword" id="confirmpassword" ng-model="user.confirmpassword" ng-minlength="6" ng-maxlength="12" ng-required="true">
+
+  
+        <p ng-show="userForm.confirmpassword.$error.minlength" class="help-block">Enter a valid confirm password.</p>
+        <p ng-show="userForm.confirmpassword.$error.maxlength" class="help-block">Password is too long.</p>
+         <div ng-show="(userForm.password.$dirty && userForm.confirmpassword.$dirty) && (user.password != user.confirmpassword)">
+        <span>Password mismatched</span>
+    </div>
+    </div>
+
+    <!-- payment nonce -->
+      <input id="nonce" type="hidden" name="user[notes]">
+      <input id="offer" value="free30" type="hidden" name="user[offer]">
+      <input id="customerid" type="hidden" name="user[customerid]">
+
+      <hr class="divider">
+
+      <div class="slug">payment information</div>
+      <div class="form-group" ng-class="{ 'has-error' : userForm.creditcard.$invalid && !userForm.creditcard.$pristine ,'has-success' : userForm.creditcard.$valid }">
+      <label class="control-label" for="creditcard">Credit Card Number</label>
+      <input type="number" id="creditcard" name="creditcard" placeholder="Credit Card Number" class="form-control" ng-pattern="/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47‌​][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$/" ng-required="true" ng-model="user.creditcard">
+      <div class="error-text" id="creditcard-error"></div> 
+      <p ng-show="userForm.creditcard.$invalid && !userForm.creditcard.$pristine" class="help-block">Enter a valid credit card number.</p>
+    </div>
+    
+
+     <div class="form-group" ng-class="{ 'has-error' : userForm.date.$invalid && !userForm.date.$pristine ,'has-success' : userForm.date.$valid }">
+
+      <label class="control-label" for="date">Expiration Date (MM/YY)</label>
+
+      <input data-braintree-name="expiration_date" type="text" id="exp" name="date" placeholder="MM/YY" class="form-control" autocomplete="off" ng-pattern="/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/" ng-required="true" ng-model="user.date">
+
+      <p ng-show="userForm.date.$invalid && !userForm.date.$pristine" class="help-block">Enter a valid date.</p>
+
+      <div class="error-text" id="creditcard-exp"></div>
+    </div>
+
+
+</form>  <hr class="divider">
+
+  <form id="braintree" action="https://membership.theinformation.com/membership/createpayment" method="post">
+
+    
+
+    <div class="form-group form-action">
+    <button type="submit" id="submit" value="Signup" class="submit-button">Sign up</button>
+    </div>
+    <div class="spinner" style="display: none;">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  <input name="payment_method_nonce" type="hidden"></form>
+
+  </div>
+
+  <div class="col-md-4 col-md-offset-1 content">
+
+
+    <div class="row">
+      <div class="topichead">
+        <h4 class="mb2">
+          <span class="slug">What you get</span>
+        </h4>
+
+        <ul class="list">
+          <li>Daily articles and summaries</li>
+          <li>Frequent event invitations</li>
+          <li>Subscriber-only Slack channel and community</li>
+          <li>Exclusive data</li>
+          <li>Saturday Digest</li>
+          <li>Our 411 Podcast</li>
+          <li>and More!</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<footer class="updated-footer">
+  <div class="row">
+    <!-- Company information -->
+    <div class="medium-12 columns footer-section company-section text-center">
+      <a href="https://membership.theinformation.com/"><img class="logo inline-block" src="./info_files/logo-for-dark.png"></a>
+      <p class="blurb">
+        The Information writes deeply-reported articles about the technology industry you won't find elsewhere.
+      </p>
+      <hr class="inline-block">
+      <div class="copyright">
+        © 2013-2015 The Information. All Rights Reserved.
+        <div class="copyright-links mt1">
+          <a class="static" data-static="true" href="https://membership.theinformation.com/terms">Terms</a> ·
+          <a class="static" data-static="true" href="https://membership.theinformation.com/privacy">Privacy</a> ·
+          <a class="static" data-static="true" href="https://membership.theinformation.com/payment-policy">Payment Policy</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="script.js"></script>
+<script src="directives.js"></script>
+
+
+</body></html>
